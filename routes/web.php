@@ -30,5 +30,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::get('edit','App\Http\Controllers\webnotes\NotesController@edit');
     Route::post('update','App\Http\Controllers\webnotes\NotesController@update') -> name('notes.update');
 
-    Route::get('all','App\Http\Controllers\webnotes\NotesController@allnotes');
+    Route::get('delete/{note_id}', 'App\Http\Controllers\webnotes\NotesController@delete')->name('notes.delete');
+
+    Route::get('AllNotes','App\Http\Controllers\webnotes\NotesController@AllNotes', function ()
+    {
+        return view('AllNotes');
+    });
+
 

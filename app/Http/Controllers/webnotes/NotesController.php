@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\WebNotes\Note;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Resources\Views\NotesWeb\ALLNotes;
 
 class NotesController extends Controller
 {
@@ -31,7 +32,20 @@ class NotesController extends Controller
             'title'=> $request -> title,
             'details'=> $request -> details,
         ]);
-
+        return redirect()->back()->with(['success'=>'Note added succefully']);
+    }
+        public function allNotes()
+    {
+        $notes = Note::select('id','title','details')->get();
+        return view('NotesWeb.AllNotes',compact('notes'));
 
     }
+        public function editNote($note_id){
+        $note = Note::find($note_id);
+        if(!$note)
+            return redirect() -> back();
+            $note= Note::select('id','title',"details") -> find($note_id);
+            return view('NotesWeb.EditNotes',compact('note'));
+        }
+
 }

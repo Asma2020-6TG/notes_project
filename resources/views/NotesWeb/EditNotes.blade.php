@@ -24,25 +24,25 @@
 <div >
 
     <div class="create">
-        <h1> Add your note </h1>
+        <h1> Edit note </h1>
     </div>
     @if(Session::has('success'))
         <div class="alert alert-success" role="alert">
-            <h2> Note added successfully </h2>
+            <h2> Note edited successfully </h2>
         </div>
     @endif
     <form method="POST" action="{{url('add')}}">
         @csrf
         <div class="form-group">
             <label for="basic-url" class="form-label">title</label>
-            <input type="text" class="form-control" name="title" placeholder="enter your note title">
+            <input type="text" class="form-control" name="title" value="{{$note-> title}}" placeholder="enter your note title">
             @error('title')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
         </div>
         <div class="form-group">
             <label for="basic-url" class="form-label">details</label>
-            <input type="text" class="form-control" name="details" placeholder="write note's details">
+            <input type="text" class="form-control" name="details" value="{{$note-> details}}" placeholder="write note's details">
             @error('details')
             <small class="form-text text-danger"> {{$message}}</small>
             @enderror
