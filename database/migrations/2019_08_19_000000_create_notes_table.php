@@ -16,10 +16,11 @@ class CreateNotesTable extends Migration
         Schema::create('notes', function (Blueprint $table) {
             $table->id();
             $table->string('title')->unique();
-            $table->text('content');
             $table->longText('details');
-            $table->timestamp('added_at')->useCurrent();
+            $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
+
     }
 
     /**
@@ -29,6 +30,6 @@ class CreateNotesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('failed_jobs');
+        Schema::dropIfExists('notes');
     }
 }

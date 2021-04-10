@@ -9,8 +9,18 @@ class Note extends Model
 {
     use HasFactory;
 
-    public static function create(array $array)
-    {
 
-    }
+        protected $fillable = [
+        'title',
+        'details',
+        'created_at',
+        'updated_at'
+    ];
+
+        protected $hidden = [
+        'created_at',
+        'updated_at'
+            ];
+
+
 }

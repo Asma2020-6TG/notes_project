@@ -23,7 +23,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 //Route:resource('create','NotesController@create');
-//Route::group(['prefix' => 'note'], function (){
+
     Route::get('create','App\Http\Controllers\webnotes\NotesController@create');
-    Route::post('add','App\Http\Controllers\webnotes\NotesController@add');
-//});
+    Route::post('add','App\Http\Controllers\webnotes\NotesController@add') -> name('notes.add');
+
+    Route::get('edit','App\Http\Controllers\webnotes\NotesController@edit');
+    Route::post('update','App\Http\Controllers\webnotes\NotesController@update') -> name('notes.update');
+
+    Route::get('all','App\Http\Controllers\webnotes\NotesController@allnotes');
+

@@ -24,24 +24,26 @@
 <div >
 
     <div class="create">
-    Add your note
+        <h1> Add your note </h1>
     </div>
     <form method="POST" action="{{url('add')}}">
         @csrf
         <div class="form-group">
-            <label for="basic-url" class="form-label">Title</label>
-            <input type="text" class="form-control" name="title" aria-describedby="basic-addon3">
+            <label for="basic-url" class="form-label">title</label>
+            <input type="text" class="form-control" name="title" placeholder="enter your note title">
+            @error('title')
+            <small class="form-text text-danger"> {{$message}} </small>
+            @enderror
         </div>
         <div class="form-group">
-            <label for="basic-url" class="form-label">Content</label>
-            <input type="text" class="form-control" name="content" aria-describedby="basic-addon3">
-        </div>
-        <div class="form-group">
-            <label for="basic-url" class="form-label">Details</label>
-            <input type="text" class="form-control" name="details" aria-describedby="basic-addon3">
+            <label for="basic-url" class="form-label">details</label>
+            <input type="text" class="form-control" name="details" placeholder="write note's details">
+            @error('details')
+            <small class="form-text text-danger"> {{$message}}</small>
+            @enderror
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">Save Note</button>
+            <button class="btn btn-primary" type="submit">  Save Note </button>
         </div>
 
     </form>
