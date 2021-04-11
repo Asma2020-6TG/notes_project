@@ -33,14 +33,6 @@
     @endif
     <form method="POST" action="{{url('add')}}">
         @csrf
-        <div class="form-group">
-
-            <label for="basic-url" class="form-label">email</label>
-            <input type="email" class="form-control" name="email" placeholder="enter your email">
-            @error('email')
-            <small class="form-text text-danger"> {{$message}} </small>
-            @enderror
-        </div>
 
         <div class="form-group">
 

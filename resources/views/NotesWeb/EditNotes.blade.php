@@ -48,7 +48,8 @@
             @enderror
         </div>
         <div class="col-12">
-            <button class="btn btn-primary" type="submit">  Save Note </button>
+
+            <a href="{{url('AllNote',$note -> id)}}" class="btn btn-success"> Save modifications</a>
         </div>
 
     </form>

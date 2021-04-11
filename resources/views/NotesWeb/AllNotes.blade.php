@@ -106,18 +106,18 @@
                 <th scope="col"> Note_title</th>
                 <th scope="col">Note_details</th>
 
-                <th scope="col">'operation'</th>
+                <th scope="col">operation</th>
     </tr>
     </thead>
     <tbody>
 
     @foreach($notes as $note)
         <tr>
-        <th scope="row">#</th>
+        <th scope="row">{{$note -> id}}</th>
         <td>{{$note -> title}}</td>
         <td>{{$note -> details}}</td>
             <td>
-                <a href="{{url('editNote'.$note -> id)}}" class="btn btn-success"> edit</a>
+                <a href="{{url('editNote',$note -> id)}}" class="btn btn-success"> edit</a>
                 <a href="{{url('delete',$note -> id)}}" class="btn btn-danger">delete</a>
             </td>
 
