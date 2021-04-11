@@ -37,6 +37,12 @@ class NotesController extends Controller
         ]);
         return redirect()->back()->with(['success'=>'Note added succefully']);
     }
+
+        public function userNotes(){
+        $id=Auth::id();
+        $notes= Note::where('user_id',$id)->get();
+        return view('NotesWeb.AllNotes',compact(notes));
+        }
         public function allNotes()
     {
         $notes = Note::select('id','title','details')->get();

@@ -37,8 +37,12 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //show all notes with bottons of delete and edit
     Route::get('AllNotes','App\Http\Controllers\webnotes\NotesController@AllNotes', function ()
     {
-        return view('AllNotes');
+        return view('NotesWeb.AllNotes');
     });
-
+//show all user's notes
+Route::get('UserNotes','App\Http\Controllers\webnotes\NotesController@UserNotes', function ()
+{
+    return view('NotesWeb.UserNotes');
+});
 //relationship one to many
 Route::get('user-has-many','App\Http\Controllers\webnotes\NotesController@getUserNotes');
