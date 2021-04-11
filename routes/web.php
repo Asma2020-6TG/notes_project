@@ -46,3 +46,7 @@ Route::get('UserNotes','App\Http\Controllers\webnotes\NotesController@UserNotes'
 });
 //relationship one to many
 Route::get('user-has-many','App\Http\Controllers\webnotes\NotesController@getUserNotes');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
