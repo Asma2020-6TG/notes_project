@@ -34,12 +34,23 @@
     <form method="POST" action="{{url('add')}}">
         @csrf
         <div class="form-group">
+
+            <label for="basic-url" class="form-label">email</label>
+            <input type="email" class="form-control" name="email" placeholder="enter your email">
+            @error('email')
+            <small class="form-text text-danger"> {{$message}} </small>
+            @enderror
+        </div>
+
+        <div class="form-group">
+
             <label for="basic-url" class="form-label">title</label>
             <input type="text" class="form-control" name="title" placeholder="enter your note title">
             @error('title')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
         </div>
+
         <div class="form-group">
             <label for="basic-url" class="form-label">details</label>
             <input type="text" class="form-control" name="details" placeholder="write note's details">

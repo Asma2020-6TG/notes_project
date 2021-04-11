@@ -9,8 +9,10 @@ class Note extends Model
 {
     use HasFactory;
 
-
+protected $table= "notes";
         protected $fillable = [
+        'email',
+        'id',
         'title',
         'details',
         'created_at',
@@ -21,6 +23,8 @@ class Note extends Model
         'created_at',
         'updated_at'
             ];
-
-
+    public function users()
+    {
+        return $this->belongsTo(App\Models\User, 'email', 'id');
+    }
 }

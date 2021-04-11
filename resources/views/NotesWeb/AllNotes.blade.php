@@ -81,21 +81,35 @@
     </div>
 </nav>
 
+@if(Session::has('success'))
+
+    <div class="alert alert-success">
+        {{Session::get('success')}}
+    </div>
+@endif
+
+
+@if(Session::has('error'))
+    <div class="alert alert-danger">
+        {{Session::get('error')}}
+    </div>
+@endif
 
     <div class="create">
         <h1> Your notes </h1>
     </div>
-   <tbody>
-       <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">'Note.title'</th>
-                <th scope="col">'Note.details'</th>
+<div>
+<table class="table">
+    <thead>
+    <tr>
+                <th scope="col">id</th>
+                <th scope="col"> Note_title</th>
+                <th scope="col">Note_details</th>
 
                 <th scope="col">'operation'</th>
-            </tr>
-        </thead>
-   </tbody>
+    </tr>
+    </thead>
+    <tbody>
 
     @foreach($notes as $note)
         <tr>
@@ -103,20 +117,20 @@
         <td>{{$note -> title}}</td>
         <td>{{$note -> details}}</td>
             <td>
-                <a href="{{url('edit'.$note -> id)}}" class="btn btn-success"> {{'update'}}</a>
-                <a href="{{url('delete',$note -> id)}}" class="btn btn-danger"> {{'delete'}}</a>
+                <a href="{{url('editNote'.$note -> id)}}" class="btn btn-success"> edit</a>
+                <a href="{{url('delete',$note -> id)}}" class="btn btn-danger">delete</a>
             </td>
 
         </tr>
     @endforeach
-
+    </tbody>
     @if(Session::has('success'))
     <div class="alert alert-success" role="alert">
         {{ Session::get('success') }}
     </div>
     @endif
 
-
+</table>
 </div>
 </body>
 </html>
