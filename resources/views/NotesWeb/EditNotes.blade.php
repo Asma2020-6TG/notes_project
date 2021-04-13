@@ -35,21 +35,21 @@
         @csrf
         <div class="form-group">
             <label for="basic-url" class="form-label">title</label>
-            <input type="text" class="form-control" name="title" value="{{$note-> title}}" placeholder="enter your note title">
+            <input type="text" class="form-control" name="Title" value="{{$note-> title}}" placeholder="Enter your note title">
             @error('title')
             <small class="form-text text-danger"> {{$message}} </small>
             @enderror
         </div>
         <div class="form-group">
             <label for="basic-url" class="form-label">details</label>
-            <input type="text" class="form-control" name="details" value="{{$note-> details}}" placeholder="write note's details">
+            <input type="text" class="form-control"  name="Details" value="{{$note-> details}}" placeholder="Write note's details">
             @error('details')
-            <small class="form-text text-danger"> {{$message}}</small>
+            <small class="form-text text-danger"> {{$message}} </small>
             @enderror
         </div>
         <div class="col-12">
 
-            <a href="{{url('AllNote',$note -> id)}}" class="btn btn-success"> Save modifications</a>
+            <a href="{{url('AllNote',$note -> id)}}" class="btn btn-success"> Save modifications </a>
         </div>
 
     </form>

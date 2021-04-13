@@ -31,6 +31,8 @@
             <h2> Note added successfully </h2>
         </div>
     @endif
+
+
     <form method="POST" action="{{url('add')}}">
         @csrf
 
@@ -45,7 +47,7 @@
 
         <div class="form-group">
             <label for="basic-url" class="form-label">details</label>
-            <input type="text" class="form-control" name="details" placeholder="write note's details">
+            <input type="text" class="form-control" name="details" placeholder="write your note's details">
             @error('details')
             <small class="form-text text-danger"> {{$message}}</small>
             @enderror

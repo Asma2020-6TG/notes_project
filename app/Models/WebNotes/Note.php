@@ -11,7 +11,6 @@ class Note extends Model
 
 protected $table= "notes";
         protected $fillable = [
-        'id',
         'title',
         'details',
         'created_at',
@@ -22,8 +21,7 @@ protected $table= "notes";
         'created_at',
         'updated_at'
             ];
-    public function users()
-    {
-        return $this->belongsTo(App\Models\User, 'email', 'id');
-    }
+
+
+
 }
