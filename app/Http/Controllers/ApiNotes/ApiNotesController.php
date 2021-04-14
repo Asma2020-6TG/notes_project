@@ -9,6 +9,6 @@ class ApiNotesController extends Controller
 {
    public function index(){
          $notes = Note::get();
-         return response()-> json($notes);
+         return response($notes);
    }
 }
